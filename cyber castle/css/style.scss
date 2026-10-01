@@ -1,0 +1,537 @@
+@font-face {
+  font-family: "Cardinal";
+  src: url("../assets/fonts/Cardinal.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cardinal";
+  src: url("../assets/fonts/Cardinal-Alternate.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+.story-text {
+  font-family: "Cardinal", Georgia, "Times New Roman", serif;
+  color: #2c211b; /* dark ink color */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cardinal", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0b1a1f;
+  color: #f0e6d2;
+  min-height: 100%;
+  line-height: 1.55;
+  overflow-x: hidden;
+  width: 100vw;
+  transform-origin: top center;
+  transform: scale(1);
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.65);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 720px;
+  padding: 2rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  height: 110px;
+  width: auto;
+  margin: 0 auto 1.5rem;
+  filter: drop-shadow(0 0 25px rgba(212, 175, 119, 0.6));
+}
+
+.slogan {
+  font-family: "Cardinal", Georgia, serif;
+  font-weight: bold; /* Uses Cardinal-Alternate */
+  font-size: 18px;
+  color: #f0e6d2;
+  margin-bottom: 2rem;
+  letter-spacing: 4px;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  font-family: "Cardinal", Georgia, serif;
+  background: url("../assets/buttons.png") center/cover no-repeat;
+  padding: 14px 38px;
+  font-size: 16px;
+  font-weight: bold; /* Uses Cardinal-Alternate */
+  color: #3c2f1e;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: none;
+  letter-spacing: 2px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  min-width: 170px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: normal;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary::before,
+.btn-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(60, 47, 30, 0.22);
+  pointer-events: none;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 26, 31, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none !important;
+}
+
+.modal-content {
+  background: #1e2a2f;
+  border: 6px solid #d4af77;
+  border-radius: 16px;
+  max-width: 620px;
+  width: 90%;
+  padding: 3rem 2.5rem;
+  color: #f0e6d2;
+  position: relative;
+  box-shadow: 0 0 60px #d4af77;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 2.2rem;
+  background: none;
+  border: none;
+  color: #d4af77;
+  cursor: pointer;
+}
+
+.modal-text {
+  font-family: "Cardinal", Georgia, serif;
+  font-weight: bold; /* Uses Cardinal-Alternate */
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.choices button {
+  font-family: "Cardinal", Georgia, serif;
+  font-weight: bold; /* Uses Cardinal-Alternate */
+  width: 100%;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  background: #d4af77;
+  color: #0b1a1f;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ====================== BECOME A KNIGHT ====================== */
+.knight-page {
+  min-height: 100vh;
+  background: #0b1a1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.parchment-container {
+  width: 860px;
+  min-height: 740px;
+  background: url("../assets/story_bg.png") center top/contain no-repeat;
+  background-color: #0b1a1f;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  padding: 110px 28px 50px;
+}
+
+/* Game photos */
+.story-image {
+  position: absolute;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 450px;
+  height: 268px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Text */
+.story-text {
+  position: absolute;
+  top: 390px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 450px;
+  color: #2c211b;
+  font-size: 18px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* Buttons */
+.story-buttons {
+  position: absolute;
+  bottom: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.story-buttons button {
+  font-family: "Cardinal", Georgia, serif;
+  background: url("../assets/buttons.png") center/cover no-repeat;
+  padding: 10px 32px;
+  font-size: 14px;
+  font-weight: bold; /* Uses Cardinal-Alternate */
+  color: #3c2f1e;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.story-buttons button:hover {
+  transform: translateY(-3px) scale(1.04);
+}
+
+/* ====================== HOME BUTTON ====================== */
+.home-button {
+  position: absolute;
+  top: 15px;
+  left: 5px;
+  z-index: 30;
+  background: transparent !important;
+}
+
+.home-button button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home-button button:focus,
+.home-button button:active {
+  outline: none;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.home-button button::-moz-focus-inner {
+  border: 0;
+}
+
+.home-button img {
+  width: 220px;
+  height: auto;
+  display: block;
+  background: transparent;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+  transition: all 0.3s ease;
+}
+
+.home-button button:hover img,
+.home-button img:hover {
+  transform: scale(1.05);
+}
+
+/* ====================== FONT TOGGLE ====================== */
+.font-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: none;
+  border: 2px solid #d4af77;
+  color: #d4af77;
+  padding: 8px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-family: "Times New Roman", serif;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+.font-toggle:hover {
+  background: #d4af77;
+  color: #0b1a1f;
+}
+
+body.times-new-roman {
+  font-family: "Times New Roman", Georgia, serif;
+}
+body.times-new-roman .story-text,
+body.times-new-roman .slogan,
+body.times-new-roman .btn-primary,
+body.times-new-roman .btn-secondary,
+body.times-new-roman .modal-text,
+body.times-new-roman .story-buttons button,
+body.times-new-roman .choices button,
+body.times-new-roman .main-question,
+body.times-new-roman .column p,
+body.times-new-roman .book-content
+body.times-new-roman .toc-header,
+body.times-new-roman .toc-item,
+body.times-new-roman .back-button 
+body.times-new-roman .toc-list 
+body.times-new-roman .content-right
+body.times-new-roman .content-photo 
+body.times-new-roman .home-button img 
+body.times-new-roman .book-content
+body.times-new-roman .modal-content{
+
+  font-family: "Times New Roman", Georgia, serif;
+  font-weight: normal;
+}
+
+/* ====================== LEARN MORE PAGE ====================== */
+.learn-page {
+  min-height: 100vh;
+  background: #0b1a1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  position: relative; 
+  overflow: hidden;
+}
+
+.book-container {
+  width: 980px;
+  min-height: 630px;
+  height: auto;
+  background: url("../assets/book.png") center/contain no-repeat;
+  position: relative;
+  padding: 90px 60px;
+}
+
+.book-content {
+  color: #2c211b;
+  font-family: "Cardinal", Georgia, "Times New Roman", serif;
+}
+
+.main-question {
+  font-family: "Cardinal", Georgia, serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #3c2f1e;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.two-columns {
+  display: flex;
+  gap: 110px;
+  align-items: flex-start;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.column p {
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.column:first-child {
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.column:last-child {
+  margin-top: 10px;
+  margin-left: -40px;
+}
+
+/* ====================== INTERACTIVE BOOK STYLES ====================== */
+
+.book-view {
+  display: block;
+}
+.book-view.hidden {
+  display: none;
+}
+
+/* Table of Contents */
+.toc-header {
+  font-family: "Cardinal", Georgia, serif;
+  font-weight: bold; /* Cardinal-Alternate */
+  font-size: 20px;
+  color: #3c2f1e;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.toc-item {
+  font-family: "Cardinal", Georgia, serif;
+  font-size: 16px;
+  color: #3c2f1e;
+  background: rgba(212, 175, 119, 0.15);
+  width: 85%;
+  border: 2px solid #8b5a2b;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  font-weight: normal;
+}
+
+.toc-item:hover {
+  background: rgba(212, 175, 119, 0.3);
+  border-color: #d4af77;
+  transform: translateX(4px);
+}
+
+/* Content photos and back button */
+.content-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.content-photo {
+    width: 100%;
+    max-width: 320px;           
+    height: 190px;             
+    margin: 15px 0 25px 0;      
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    align-self: flex-start;     
+}
+
+.content-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      
+    object-position: left center;   
+}
+
+.back-button {
+  font-family: "Cardinal", Georgia, serif;
+  background: rgba(212, 175, 119, 0.2);
+  border: 2px solid #8b5a2b;
+  color: #3c2f1e;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.back-button:hover {
+  background: rgba(212, 175, 119, 0.35);
+  border-color: #d4af77;
+  transform: translateX(-3px);
+}
+
+@media (max-width: 1050px) {
+  body {
+    width: 1050px;
+    transform: scale(calc(min(1, 100vw / 1050)));
+  }
+}

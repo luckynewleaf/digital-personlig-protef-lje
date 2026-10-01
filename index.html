@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elliot Beck · Portfolio</title>
+  <meta name="description" content="Portfolio of Elliot Beck, multimedia design student based in Copenhagen. Branding, web, visual storytelling and music.">
+  <link rel="icon" type="image/png" href="images/elliot-doodle.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="page">
+
+    <h1 class="title spread">
+      hi, i'm <span class="red">elliot beck</span>, and welcome to my interactive portfolio. i hope you enjoy your stay here :)
+    </h1>
+
+    <figure class="slot square doodle" data-label="doodle of elliot">
+      <img src="images/elliot-doodle.png" alt="A hand-drawn doodle of Elliot Beck"
+           onload="this.parentNode.classList.add('loaded')" onerror="this.remove()">
+    </figure>
+
+    <div class="prose spread intro">
+      <p>
+        i’m a 23-year-old creative from poland, raised in denmark and currently 
+        based in copenhagen. i’m studying multimedia design while making my own music, 
+        with the goal of pursuing a creative career where music, design, and visual 
+        storytelling can come together. i enjoy experimenting with different ideas 
+        and finding ways to turn them into something personal.
+      </p>
+    </div>
+
+    <button class="cta" type="button" data-open-menu>view my projects <span class="arrow">→</span></button>
+
+    <footer class="spread">elliot beck</footer>
+
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>

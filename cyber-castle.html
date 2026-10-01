@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Cyber Castle · Elliot Beck</title>
+  <meta name="description" content="The Cyber Castle, a branching JavaScript game that teaches students about phishing.">
+  <link rel="icon" type="image/png" href="images/elliot-doodle.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="page">
+
+    <nav class="topbar">
+      <a href="index.html">← elliot beck</a>
+      <button type="button" data-open-menu>all projects</button>
+    </nav>
+
+    <h1 class="title spread"><span class="red">03</span> the cyber castle game<span class="red">03</span></h1>
+
+    <figure class="slot " data-label="game start screen">
+      <img src="images/cybercastle-1.jpg" alt="game start screen"
+           onload="this.parentNode.classList.add('loaded')" onerror="this.remove()">
+    </figure>
+     <div class="links">
+      <a class="cta" href="cyber%20castle/index.html">play the game <span class="arrow">→</span></a>
+    </div>
+
+    <dl class="facts">
+      <dt>type</dt><dd>branching scenario game</dd>
+      <dt>team</dt><dd>solo</dd>
+      <dt>built with</dt><dd>html · css · javascript</dd>
+      <dt>year</dt><dd>2026</dd>
+    </dl>
+
+    <section class="section prose">
+      <h2>the idea</h2>
+      <p>a choose-your-own-adventure game that teaches students about phishing. you play a would-be cyber knight helping the king fight phishing dragons, and your choices decide how it ends.</p>
+    </section>
+
+    <div class="slot-pair">
+      <figure class="slot tall" data-label="scene with choices">
+      <img src="images/cybercastle-2.jpg" alt="a scene with choices"
+           onload="this.parentNode.classList.add('loaded')" onerror="this.remove()">
+    </figure>
+      <figure class="slot tall" data-label="bad ending">
+      <img src="images/cybercastle-3.jpg" alt="bad ending of the game"
+           onload="this.parentNode.classList.add('loaded')" onerror="this.remove()">
+    </figure>
+    </div>
+
+    <section class="section prose">
+      <h2>how it works</h2>
+      <p>seven scenes of images and text, switched dynamically with javascript. open the suspicious letter without inspecting it and you lose; check it first and you move on. a toggle swaps the fantasy font for an easier-to-read one.</p>
+    </section>
+    <section class="section prose">
+      <h2>what i learned</h2>
+      <p>branching logic and dom manipulation in plain javascript, and that wrapping a dry subject in a story makes it far easier to remember.</p>
+    </section>
+
+   <div class="links">
+      <a class="u" href="https://github.com/luckynewleaf/cybercastle" target="_blank" rel="noopener">view the code ↗</a>
+    </div>
+
+    <nav class="next">
+      <span>next</span>
+      <a href="disc-delivery.html">04 disc delivery →</a>
+    </nav>
+
+    <footer class="spread">elliot beck</footer>
+
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>

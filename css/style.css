@@ -1,0 +1,283 @@
+/* ==========================================================
+   elliot beck — portfolio
+   colours: background #F5EFEF · primary #1276EF
+            accent 1 #F3E6A2 · accent 2 #AC2A34
+   ========================================================== */
+
+:root {
+  --bg: #F5EFEF;
+  --primary: #1276EF;
+  --yellow: #F3E6A2;
+  --red: #AC2A34;
+  --col: min(360px, calc(100vw - 40px));
+  --gap: clamp(48px, 9vh, 88px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: var(--bg); }
+
+body {
+  background: var(--bg);
+  color: var(--primary);
+  font-family: "Manrope", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14.5px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  animation: fade-in .7s ease both;
+}
+
+::selection { background: var(--yellow); color: var(--red); }
+
+a { color: inherit; text-decoration: none; }
+
+img { display: block; max-width: 100%; }
+
+/* ---------- the narrow centred column ---------- */
+
+.page {
+  width: var(--col);
+  margin: 0 auto;
+  padding: var(--gap) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* justified on every line, like the reference */
+.spread {
+  text-align: justify;
+  text-align-last: justify;
+  hyphens: none;
+}
+
+.title {
+  font-size: clamp(19px, 2.2vw, 22px);
+  font-weight: 600;
+  line-height: 1.18;
+  width: 82%;
+  margin: 0 auto;
+}
+
+.red { color: var(--red); }
+
+.prose p {
+  text-align: justify;
+  hyphens: none;
+}
+
+.prose p + p { margin-top: 1em; }
+
+.prose.spread p { text-align-last: justify; }
+
+/* front-page intro: body-text size, with its distinct weight and width */
+.intro {
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.18;
+  width: 82%;
+  margin: 0 auto;
+}
+
+/* ---------- image slots ----------
+   each slot shows a yellow placeholder until its image exists */
+
+.slot {
+  position: relative;
+  background: var(--yellow);
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.slot.square { aspect-ratio: 1 / 1; width: 82%; margin: 0 auto; }
+.slot.tall { aspect-ratio: 4 / 5; }
+.slot.playbook-slide { aspect-ratio: 16 / 9; }
+
+.slot::after {
+  content: attr(data-label);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--red);
+  opacity: .8;
+}
+
+.slot img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slot.loaded { background: none; }
+.slot.loaded::after { display: none; }
+.slot.doodle img { object-fit: contain; }
+
+.slot-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ---------- links ---------- */
+
+.cta {
+  align-self: center;
+  font: inherit;
+  font-weight: 600;
+  color: var(--red);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 2px 6px;
+  transition: background .25s ease;
+}
+
+.cta:hover, .cta:focus-visible { background: var(--yellow); outline: none; }
+
+.cta .arrow { display: inline-block; transition: transform .25s ease; }
+.cta:hover .arrow { transform: translateX(4px); }
+
+.u {
+  color: var(--red);
+  background-image: linear-gradient(var(--yellow), var(--yellow));
+  background-size: 100% 0;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .25s ease;
+}
+
+.u:hover { background-size: 100% 100%; }
+
+/* ---------- top bar on project pages ---------- */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+}
+
+.topbar button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.topbar a:hover, .topbar button:hover { color: var(--red); }
+
+/* ---------- project facts ---------- */
+
+.facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 18px;
+  row-gap: 3px;
+  font-size: 12.5px;
+}
+
+.facts dt { color: var(--red); }
+
+.section h2 {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.links .u { align-self: flex-end; }
+
+.next {
+  border-top: 1px solid currentColor;
+  padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+}
+
+.next a:hover { color: var(--red); }
+
+footer {
+  font-size: 11.5px;
+  opacity: .7;
+}
+
+/* ---------- projects pop-up ---------- */
+
+dialog.menu {
+  margin: auto;
+  width: min(420px, calc(100vw - 32px));
+  background: var(--bg);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 28px 26px 22px;
+}
+
+dialog.menu::backdrop {
+  background: rgba(245, 239, 239, .75);
+  backdrop-filter: blur(3px);
+}
+
+dialog.menu[open] { animation: pop .35s ease both; }
+
+.menu-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--red);
+  margin-bottom: 18px;
+}
+
+.menu-head button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.menu ol { list-style: none; }
+
+.menu li a {
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  align-items: baseline;
+  padding: 10px 4px;
+  border-top: 1px solid rgba(18, 118, 239, .25);
+  transition: background .2s ease, color .2s ease;
+}
+
+.menu li:last-child a { border-bottom: 1px solid rgba(18, 118, 239, .25); }
+
+.menu .num { font-size: 12px; }
+.menu .name { font-size: 18px; font-weight: 600; }
+.menu .tag { font-size: 12px; }
+
+.menu li a:hover, .menu li a:focus-visible {
+  background: var(--yellow);
+  color: var(--red);
+  outline: none;
+}
+
+/* ---------- motion ---------- */
+
+@keyframes fade-in { from { opacity: 0; transform: translateY(6px); } }
+@keyframes pop { from { opacity: 0; transform: translateY(8px) scale(.98); } }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

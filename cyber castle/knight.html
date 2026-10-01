@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knight's Quest • The Cyber Castle</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+    <div class="knight-page">
+        <div class="parchment-container">
+            <div class="story-image">
+                <img id="scene-image" src="assets/game1.png" alt="A distant medieval castle on fire with people running away.">
+            </div>
+            <div class="story-text">
+                <p id="scene-text">The ancient Cyber Castle is under siege by shadowy forces of hackers and phishing dragons. The King has sent forth a desperate call for brave knights to defend the realm.<br><br>Do you heed the call and join the fight?</p>
+            </div>
+            <div id="scene-buttons" class="story-buttons"></div>
+        </div>
+    </div>
+<div class="home-button">
+    <button type="button" onclick="window.location.href='index.html'">
+        <img src="assets/home.png" alt="Home">
+    </button>
+</div>
+    <button type="button" class="font-toggle" aria-pressed="false" onclick="toggleFont()">Use easy-to-read font</button>
+
+    <script>
+        // ==================== FONT TOGGLE ====================
+        function applyFontPreference() {
+            const preference = localStorage.getItem('fontPreference');
+            const button = document.querySelector('.font-toggle');
+            if (preference === 'times-new-roman') {
+                document.body.classList.add('times-new-roman');
+                if (button) {
+                    button.textContent = 'Use fantasy font';
+                    button.setAttribute('aria-pressed', 'true');
+                }
+            } else if (button) {
+                button.setAttribute('aria-pressed', 'false');
+            }
+        }
+
+        function toggleFont() {
+            const button = document.querySelector('.font-toggle');
+            document.body.classList.toggle('times-new-roman');
+            if (document.body.classList.contains('times-new-roman')) {
+                if (button) {
+                    button.textContent = 'Use fantasy font';
+                    button.setAttribute('aria-pressed', 'true');
+                }
+                localStorage.setItem('fontPreference', 'times-new-roman');
+            } else {
+                if (button) {
+                    button.textContent = 'Use easy-to-read font';
+                    button.setAttribute('aria-pressed', 'false');
+                }
+                localStorage.setItem('fontPreference', 'cardinal');
+            }
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', applyFontPreference);
+        } else {
+            applyFontPreference();
+        }
+
+        // ==================== STORY STUFFFFFF ====================
+        const sceneAlts = {
+            "assets/game1.png": "A distant medieval castle on fire with people running away.",
+            "assets/game2.png": "A distant castle in rubble at night.",
+            "assets/game3.png": "A close-up of the leg of an owl with a rolled up piece of paper tied to its leg.",
+            "assets/game4.png": "An open piece of paper with mysterious purple glowing letters.",
+            "assets/game5.png": "An open piece of paper with mysterious purple glowing letters.",
+            "assets/game6.png": "The hand of a king on the left and the hand of you, the object, on the right, about to shake hands. There’s a group of guards in the background.",
+            "assets/game7.png": "A distant medieval castle on fire. There’s a knight standing with their sword, looking up at it."
+        };
+
+        const scenes = {
+            start: { image: "assets/game1.png", text: "The ancient Cyber Castle is under siege by shadowy forces of hackers and phishing dragons. Chaos erupts all over the kingdom!<br><br>The King has sent forth a desperate call for brave knights to defend the realm.<br><br>Do you heed the call and join the fight? Or do you watch as the Cyber Castle crumbles?", buttons: [{ text: "Accept", next: "accept" }, { text: "Decline", next: "decline" }] },
+            decline: { image: "assets/game2.png", text: "A heavy sigh echoes through the halls.<br><br>Without your aid, the castle walls crumble under the dark tide. You remain exposed, vulnerable to the phishing beasts.", buttons: [{ text: "Return home", next: "home" }] },
+            accept: { image: "assets/game3.png", text: "The King’s eyes light up with hope.<br><br>“A true knight has answered!” He bids that you await a formal summons delivered by royal owl.<br><br>The next dawn, a majestic owl perches on a nearby fence, a sealed scroll tied to its leg.<br><br>What do you do?", buttons: [{ text: "Open the letter", next: "open" }, { text: "Inspect it", next: "inspect" }] },
+            open: { image: "assets/game4.png", text: "Disaster!<br><br>The scroll was a cunning trap from the Dark Web Sorcerer!<br><br>The King is disappointed in your haste.", buttons: [{ text: "Try again", next: "start" }]},
+            inspect: { image: "assets/game5.png", text: "Huzzah!<br><br>You carefully examine the scroll and discover it's was plagued with a harmless phishing attack.<br><br>It was a ruse sent from the King himself to test you - and you passed. He is very impressed by your vigilance and urges you to continue forth.", buttons: [{ text: "Continue", next: "email" }] },
+            email: { image: "assets/game6.png", text: "Excellent!<br><br>To officially join the Cyber Knights and receive your weekly scrolls (our course), please enter your email address below.", isEmailForm: true },
+            success: { image: "assets/game7.png", text: "The oath is sworn!<br><br>You are now a proud member of the Cyber Knights.<br><br>Expect weekly mails filled with powerful knowledge.", buttons: [{ text: "Return home", next: "home" }] }
+        };
+
+        function renderScene(key) {
+            const scene = scenes[key];
+            const sceneImage = document.getElementById("scene-image");
+            sceneImage.src = scene.image;
+            sceneImage.alt = sceneAlts[scene.image] || "Knight story scene.";
+            document.getElementById("scene-text").innerHTML = scene.text;
+
+            const btnDiv = document.getElementById("scene-buttons");
+            btnDiv.innerHTML = "";
+
+            if (scene.isEmailForm) {
+                btnDiv.innerHTML = `
+                    <input type="email" id="email-input" placeholder="your@email.com" 
+                           style="padding:14px 20px; font-size:1.1rem; width:100%; max-width:380px; border-radius:8px; border:3px solid #8b5a2b; margin-bottom:1rem;">
+                    <button id="continue-btn" class="btn-primary" style="opacity:0.5; pointer-events:none;">Continue</button>
+                `;
+                const input = document.getElementById("email-input");
+                const btn = document.getElementById("continue-btn");
+                input.oninput = () => {
+                    if (input.value.length >= 5 && input.value.includes("@")) {
+                        btn.style.opacity = "1";
+                        btn.style.pointerEvents = "all";
+                        btn.onclick = () => renderScene("success");
+                    }
+                };
+            } else {
+                scene.buttons.forEach(b => {
+                    const button = document.createElement("button");
+                    button.textContent = b.text;
+                    button.className = "btn-primary";
+                    button.onclick = () => (b.next === "home") ? window.location.href = "index.html" : renderScene(b.next);
+                    btnDiv.appendChild(button);
+                });
+            }
+        }
+
+        window.onload = () => renderScene("start");
+    </script>
+</body>
+</html>

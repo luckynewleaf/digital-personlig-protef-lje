@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn More • The Cyber Castle</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+    <div class="learn-page">
+        
+        <!-- HOME BUTTOn -->
+        <div class="home-button">
+            <button type="button" onclick="window.location.href='index.html'">
+                <img src="assets/home.png" alt="Home">
+            </button>
+        </div>
+
+        <div class="book-container">
+            <!-- TABLE OF CONTENTS VIEW -->
+            <div id="toc-view" class="book-view">
+                <div class="book-content">
+                    <div class="two-columns">
+                        <!-- LEFT COLUMN - INTRO -->
+                        <div class="column">
+                            <h1 class="main-question">Learn more</h1>
+                            <p>See what The Cyber Castle has to offer and what we're all about. Explore our world, our course, and our mission to transform you into a true Cyber Knight.</p>
+                        </div>
+                        
+
+                        <!-- RIGHT COLUMN - CONTENTS -->
+                        <div class="column">
+                            <h2 class="toc-header">Contents</h2>
+                            <div class="toc-list">
+                                <button class="toc-item" onclick="showContent('castle')">The Cyber Castle</button>
+                                <button class="toc-item" onclick="showContent('course')">The Cyber Knights Course</button>
+                                <button class="toc-item" onclick="showContent('mission')">Our Mission</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT: THE CYBER CASTLE -->
+            <div id="castle-view" class="book-view hidden">
+                <div class="book-content">
+                    <div class="two-columns">
+                        <!-- LEFT COLUMN -->
+                        <div class="column">
+                            <h1 class="main-question">The Cyber Castle</h1>
+                            <p>The Cyber Castle isn't just a name—it's a fortress of knowledge and protection in the digital realm. We built it for curious minds who want to learn cybersecurity without fear or anxiety.</p>
+                            <p>In our castle, we blend medieval fantasy with the modern challenges of the internet. Knights and dragons, phishing attacks and scams - they all come together to create an engaging learning experience.</p>
+                            <p>We welcome you to the Cyber Castle to learn and to become a guardian of your own digital kingdom.</p>
+                        </div>
+
+                        <!-- RIGHT COLUMN - PHOTO -->
+                        <div class="column content-right">
+                            <div class="content-photo">
+                                <img src="assets/learn_castle.png" alt="A distant medieval castle on fire with people running away.">
+                            </div>
+                            <button class="back-button" onclick="showContent('toc')">← Back to Contents</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT: THE CYBER KNIGHTS COURSE -->
+            <div id="course-view" class="book-view hidden">
+                <div class="book-content">
+                    <div class="two-columns">
+                        <!-- LEFT COLUMN -->
+                        <div class="column">
+                            <h1 class="main-question">The Cyber Knights Course</h1>
+                            <p>Our course is rated E for Everyone Each week, you'll receive a lesson that teaches you cybersecurity skills.</p>
+                            <p>Why weekly lessons? Spaced learning is more effective than cramming. One lesson per week keeps you motivated, gives you time to practice, and helps the knowledge stick.</p>
+                            <p>We cover phishing attacks, password security, safe browsing, and much more. Each lesson is wrapped in fantasy to keep it engaging and fun.</p>
+                            <p>By the end of the course, you'll be a true Cyber Knight!</p>
+                        </div>
+
+                        <!-- RIGHT COLUMN - PHOTO -->
+                        <div class="column content-right">
+                            <div class="content-photo">
+                                <img src="assets/learn_course.png" alt="A distant medieval castle on fire. There’s a knight standing with their sword, looking up at it.">
+                            </div>
+                            <button class="back-button" onclick="showContent('toc')">← Back to Contents</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT: OUR MISSION -->
+            <div id="mission-view" class="book-view hidden">
+                <div class="book-content">
+                    <div class="two-columns">
+                        <!-- LEFT COLUMN -->
+                        <div class="column">
+                            <h1 class="main-question">Our Mission</h1>
+                            <p>We (the team) are a small group of chronic internet users. We've experienced the dangers of the internet, and we want to help.</p>
+                            <p>After watching too many friends and fellow students fall victim to digital threats, we realized something had to change. We realized cybersecurity education was either too complex or too boring.</p>
+                            <p>Our mission is simple: Transform ordinary students into brave Cyber Knights who can protect themselves in the vast kingdom of the internet.</p>
+                        </div>
+
+                        <!-- RIGHT COLUMN - PHOTO -->
+                        <div class="column content-right">
+                            <div class="content-photo">
+                                <img src="assets/learn_mission.png" alt="The hand of a king on the left and the hand of you, the object, on the right, about to shake hands. There’s a group of guards in the background.">
+                            </div>
+                            <button class="back-button" onclick="showContent('toc')">← Back to Contents</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Font Toggle Button -->
+    <button type="button" class="font-toggle" aria-pressed="false" onclick="toggleFont()">Use easy-to-read font</button>
+
+    <script>
+        // ==================== NAVIGATION ====================
+        function showContent(section) {
+            // Hide all views
+            document.querySelectorAll('.book-view').forEach(view => {
+                view.classList.add('hidden');
+            });
+
+            // Show the selected view
+            if (section === 'toc') {
+                document.getElementById('toc-view').classList.remove('hidden');
+            } else if (section === 'castle') {
+                document.getElementById('castle-view').classList.remove('hidden');
+            } else if (section === 'course') {
+                document.getElementById('course-view').classList.remove('hidden');
+            } else if (section === 'mission') {
+                document.getElementById('mission-view').classList.remove('hidden');
+            }
+        }
+
+        // ==================== FONT TOGGLE ====================
+        function applyFontPreference() {
+            const preference = localStorage.getItem('fontPreference');
+            const button = document.querySelector('.font-toggle');
+            if (preference === 'times-new-roman') {
+                document.body.classList.add('times-new-roman');
+                if (button) {
+                    button.textContent = 'Use fantasy font';
+                    button.setAttribute('aria-pressed', 'true');
+                }
+            } else if (button) {
+                button.setAttribute('aria-pressed', 'false');
+            }
+        }
+
+        function toggleFont() {
+            const button = document.querySelector('.font-toggle');
+            document.body.classList.toggle('times-new-roman');
+            if (document.body.classList.contains('times-new-roman')) {
+                if (button) {
+                    button.textContent = 'Use fantasy font';
+                    button.setAttribute('aria-pressed', 'true');
+                }
+                localStorage.setItem('fontPreference', 'times-new-roman');
+            } else {
+                if (button) {
+                    button.textContent = 'Use easy-to-read font';
+                    button.setAttribute('aria-pressed', 'false');
+                }
+                localStorage.setItem('fontPreference', 'cardinal');
+            }
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', applyFontPreference);
+        } else {
+            applyFontPreference();
+        }
+    </script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
