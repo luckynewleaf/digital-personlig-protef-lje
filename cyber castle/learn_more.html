@@ -10,7 +10,6 @@
 <body>
     <div class="learn-page">
         
-        <!-- HOME BUTTOn -->
         <div class="home-button">
             <button type="button" onclick="window.location.href='index.html'">
                 <img src="assets/home.png" alt="Home">
@@ -18,18 +17,15 @@
         </div>
 
         <div class="book-container">
-            <!-- TABLE OF CONTENTS VIEW -->
             <div id="toc-view" class="book-view">
                 <div class="book-content">
                     <div class="two-columns">
-                        <!-- LEFT COLUMN - INTRO -->
                         <div class="column">
                             <h1 class="main-question">Learn more</h1>
                             <p>See what The Cyber Castle has to offer and what we're all about. Explore our world, our course, and our mission to transform you into a true Cyber Knight.</p>
                         </div>
                         
 
-                        <!-- RIGHT COLUMN - CONTENTS -->
                         <div class="column">
                             <h2 class="toc-header">Contents</h2>
                             <div class="toc-list">
@@ -42,11 +38,9 @@
                 </div>
             </div>
 
-            <!-- CONTENT: THE CYBER CASTLE -->
             <div id="castle-view" class="book-view hidden">
                 <div class="book-content">
                     <div class="two-columns">
-                        <!-- LEFT COLUMN -->
                         <div class="column">
                             <h1 class="main-question">The Cyber Castle</h1>
                             <p>The Cyber Castle isn't just a name—it's a fortress of knowledge and protection in the digital realm. We built it for curious minds who want to learn cybersecurity without fear or anxiety.</p>
@@ -54,7 +48,6 @@
                             <p>We welcome you to the Cyber Castle to learn and to become a guardian of your own digital kingdom.</p>
                         </div>
 
-                        <!-- RIGHT COLUMN - PHOTO -->
                         <div class="column content-right">
                             <div class="content-photo">
                                 <img src="assets/learn_castle.png" alt="A distant medieval castle on fire with people running away.">
@@ -65,11 +58,9 @@
                 </div>
             </div>
 
-            <!-- CONTENT: THE CYBER KNIGHTS COURSE -->
             <div id="course-view" class="book-view hidden">
                 <div class="book-content">
                     <div class="two-columns">
-                        <!-- LEFT COLUMN -->
                         <div class="column">
                             <h1 class="main-question">The Cyber Knights Course</h1>
                             <p>Our course is rated E for Everyone Each week, you'll receive a lesson that teaches you cybersecurity skills.</p>
@@ -78,7 +69,6 @@
                             <p>By the end of the course, you'll be a true Cyber Knight!</p>
                         </div>
 
-                        <!-- RIGHT COLUMN - PHOTO -->
                         <div class="column content-right">
                             <div class="content-photo">
                                 <img src="assets/learn_course.png" alt="A distant medieval castle on fire. There’s a knight standing with their sword, looking up at it.">
@@ -89,11 +79,9 @@
                 </div>
             </div>
 
-            <!-- CONTENT: OUR MISSION -->
             <div id="mission-view" class="book-view hidden">
                 <div class="book-content">
                     <div class="two-columns">
-                        <!-- LEFT COLUMN -->
                         <div class="column">
                             <h1 class="main-question">Our Mission</h1>
                             <p>We (the team) are a small group of chronic internet users. We've experienced the dangers of the internet, and we want to help.</p>
@@ -101,7 +89,6 @@
                             <p>Our mission is simple: Transform ordinary students into brave Cyber Knights who can protect themselves in the vast kingdom of the internet.</p>
                         </div>
 
-                        <!-- RIGHT COLUMN - PHOTO -->
                         <div class="column content-right">
                             <div class="content-photo">
                                 <img src="assets/learn_mission.png" alt="The hand of a king on the left and the hand of you, the object, on the right, about to shake hands. There’s a group of guards in the background.">
@@ -114,18 +101,14 @@
         </div>
     </div>
 
-    <!-- Font Toggle Button -->
     <button type="button" class="font-toggle" aria-pressed="false" onclick="toggleFont()">Use easy-to-read font</button>
 
     <script>
-        // ==================== NAVIGATION ====================
         function showContent(section) {
-            // Hide all views
             document.querySelectorAll('.book-view').forEach(view => {
                 view.classList.add('hidden');
             });
 
-            // Show the selected view
             if (section === 'toc') {
                 document.getElementById('toc-view').classList.remove('hidden');
             } else if (section === 'castle') {
@@ -137,7 +120,6 @@
             }
         }
 
-        // ==================== FONT TOGGLE ====================
         function applyFontPreference() {
             const preference = localStorage.getItem('fontPreference');
             const button = document.querySelector('.font-toggle');

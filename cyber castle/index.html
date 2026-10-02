@@ -14,13 +14,10 @@
         </video>
 
         <div class="content">
-            <!-- Logo -->
             <img src="assets/logo.png" alt="The Cyber Castle logo" class="logo">
 
-            <!-- Slogan or something idk lol -->
             <p class="slogan">Protect yourself. Like a knight!</p>
 
-            <!-- Buttons -->
             <div class="buttons">
                 <button onclick="window.location.href='knight.html'" class="btn-primary">
                  Become a knight
@@ -32,7 +29,6 @@
         </div>
     </div>
 
-    <!-- Scenario Modal -->
     <div id="scenario-modal" class="modal hidden">
         <div class="modal-content">
             <button onclick="closeModal()" class="close-btn">✕</button>
@@ -41,11 +37,9 @@
         </div>
     </div>
 
-    <!-- Font Toggle Button -->
     <button type="button" class="font-toggle" aria-pressed="false" onclick="toggleFont()">Use easy-to-read font</button>
 
     <script>
-        // ==================== FONT TOGGLE ====================
         function applyFontPreference() {
             const preference = localStorage.getItem('fontPreference');
             const button = document.querySelector('.font-toggle');

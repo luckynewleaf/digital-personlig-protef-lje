@@ -12,7 +12,7 @@
 }
 .story-text {
   font-family: "Cardinal", Georgia, "Times New Roman", serif;
-  color: #2c211b; /* dark ink color */
+  color: #2c211b;
 }
 
 * {
@@ -33,7 +33,6 @@ body {
   transform: scale(1);
 }
 
-/* HERO */
 .hero {
   height: 100vh;
   width: 100vw;
@@ -75,14 +74,13 @@ body {
 
 .slogan {
   font-family: "Cardinal", Georgia, serif;
-  font-weight: bold; /* Uses Cardinal-Alternate */
+  font-weight: bold;
   font-size: 18px;
   color: #f0e6d2;
   margin-bottom: 2rem;
   letter-spacing: 4px;
 }
 
-/* BUTTONS */
 .buttons {
   display: flex;
   gap: 1.2rem;
@@ -96,7 +94,7 @@ body {
   background: url("../assets/buttons.png") center/cover no-repeat;
   padding: 14px 38px;
   font-size: 16px;
-  font-weight: bold; /* Uses Cardinal-Alternate */
+  font-weight: bold;
   color: #3c2f1e;
   border: none;
   border-radius: 8px;
@@ -133,7 +131,6 @@ body {
   pointer-events: none;
 }
 
-/* MODAL */
 .modal {
   position: fixed;
   inset: 0;
@@ -173,7 +170,7 @@ body {
 
 .modal-text {
   font-family: "Cardinal", Georgia, serif;
-  font-weight: bold; /* Uses Cardinal-Alternate */
+  font-weight: bold;
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 2.5rem;
@@ -181,7 +178,7 @@ body {
 
 .choices button {
   font-family: "Cardinal", Georgia, serif;
-  font-weight: bold; /* Uses Cardinal-Alternate */
+  font-weight: bold;
   width: 100%;
   padding: 1.2rem;
   margin-bottom: 1rem;
@@ -193,7 +190,6 @@ body {
   cursor: pointer;
 }
 
-/* ====================== BECOME A KNIGHT ====================== */
 .knight-page {
   min-height: 100vh;
   background: #0b1a1f;
@@ -216,7 +212,6 @@ body {
   padding: 110px 28px 50px;
 }
 
-/* Game photos */
 .story-image {
   position: absolute;
   top: 85px;
@@ -236,7 +231,6 @@ body {
      object-fit: cover;
 }
 
-/* Text */
 .story-text {
   position: absolute;
   top: 390px;
@@ -249,7 +243,6 @@ body {
   text-align: center;
 }
 
-/* Buttons */
 .story-buttons {
   position: absolute;
   bottom: 85px;
@@ -266,7 +259,7 @@ body {
   background: url("../assets/buttons.png") center/cover no-repeat;
   padding: 10px 32px;
   font-size: 14px;
-  font-weight: bold; /* Uses Cardinal-Alternate */
+  font-weight: bold;
   color: #3c2f1e;
   border: none;
   border-radius: 8px;
@@ -278,7 +271,6 @@ body {
   transform: translateY(-3px) scale(1.04);
 }
 
-/* ====================== HOME BUTTON ====================== */
 .home-button {
   position: absolute;
   top: 15px;
@@ -327,7 +319,6 @@ body {
   transform: scale(1.05);
 }
 
-/* ====================== FONT TOGGLE ====================== */
 .font-toggle {
   position: fixed;
   bottom: 20px;
@@ -375,7 +366,6 @@ body.times-new-roman .modal-content{
   font-weight: normal;
 }
 
-/* ====================== LEARN MORE PAGE ====================== */
 .learn-page {
   min-height: 100vh;
   background: #0b1a1f;
@@ -438,8 +428,6 @@ body.times-new-roman .modal-content{
   margin-left: -40px;
 }
 
-/* ====================== INTERACTIVE BOOK STYLES ====================== */
-
 .book-view {
   display: block;
 }
@@ -447,10 +435,9 @@ body.times-new-roman .modal-content{
   display: none;
 }
 
-/* Table of Contents */
 .toc-header {
   font-family: "Cardinal", Georgia, serif;
-  font-weight: bold; /* Cardinal-Alternate */
+  font-weight: bold;
   font-size: 20px;
   color: #3c2f1e;
   margin-bottom: 1.5rem;
@@ -484,7 +471,6 @@ body.times-new-roman .modal-content{
   transform: translateX(4px);
 }
 
-/* Content photos and back button */
 .content-right {
   display: flex;
   flex-direction: column;

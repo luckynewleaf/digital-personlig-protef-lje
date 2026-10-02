@@ -27,7 +27,6 @@
     <button type="button" class="font-toggle" aria-pressed="false" onclick="toggleFont()">Use easy-to-read font</button>
 
     <script>
-        // ==================== FONT TOGGLE ====================
         function applyFontPreference() {
             const preference = localStorage.getItem('fontPreference');
             const button = document.querySelector('.font-toggle');
@@ -65,7 +64,6 @@
             applyFontPreference();
         }
 
-        // ==================== STORY STUFFFFFF ====================
         const sceneAlts = {
             "assets/game1.png": "A distant medieval castle on fire with people running away.",
             "assets/game2.png": "A distant castle in rubble at night.",
